@@ -1,7 +1,12 @@
 package org.example.Logic;
 
 public class Logic {
-    static int[][] arrayLogic = new int[3][3];
+    static int[][] arrayLogic;
+
+    public Logic() {
+        arrayLogic = new int[3][3];
+    }
+
     int counter = 0;
     public String logic(int i, int k, int num){
 
@@ -61,6 +66,8 @@ public class Logic {
             return "O Won!";
         }
 
+        System.out.println(counter);
+
         String str = "";
         if(counter == 9){
             for(int a = 0; a < 3 ; a++){
@@ -69,6 +76,7 @@ public class Logic {
                 }
                 System.out.println(str);
                 str = "";
+
             }
             return "Draw!";
         }

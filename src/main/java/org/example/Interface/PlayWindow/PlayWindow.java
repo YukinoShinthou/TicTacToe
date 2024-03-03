@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PlayWindow implements ActionListener {
-    Logic logic = new Logic();
+    Logic logic;
 
     JLabel select = new JLabel();
     JLabel B1 = new JLabel();
@@ -22,8 +22,8 @@ public class PlayWindow implements ActionListener {
     JLabel B8 = new JLabel();
     JLabel B9 = new JLabel();
 
-    ImageIcon SelectXImage = new ImageIcon("E:\\javaprojects\\TicTacToe\\src\\main\\resources\\XButtons\\SelectX.png");
-    ImageIcon SelectOImage = new ImageIcon("E:\\javaprojects\\TicTacToe\\src\\main\\resources\\OButtons\\SelectO.png");
+    ImageIcon SelectXImage = new ImageIcon("src/main/resources/XButtons/SelectX.png");
+    ImageIcon SelectOImage = new ImageIcon("src/main/resources/OButtons/SelectO.png");
 
 
 
@@ -37,10 +37,12 @@ public class PlayWindow implements ActionListener {
     JButton button8;
     JButton button9;
 
-    String WonMessage = "";
+    String ReturnMessage = "";
 
 
     public PlayWindow() {
+        logic = new Logic();
+
         //Main PlayWindow Frame
         JFrame playFrame = new JFrame();
         playFrame.setTitle("Tic Tac Toe");
@@ -49,14 +51,14 @@ public class PlayWindow implements ActionListener {
         int x = (int) ((dimension.getWidth() - playFrame.getWidth()) / 2);
         int y = (int) ((dimension.getHeight() - playFrame.getHeight()) / 2);
         playFrame.setLocation(x, y);
-        ImageIcon icon = new ImageIcon("E:\\javaprojects\\TicTacToe\\src\\main\\resources\\Icon.jpg");
+        ImageIcon icon = new ImageIcon("src/main/resources/Icon.jpg");
         playFrame.setIconImage(icon.getImage());
         playFrame.setResizable(true);
         playFrame.setVisible(true);
 
         //Background image label
         JLabel label = new JLabel();
-        ImageIcon backImage = new ImageIcon("E:\\javaprojects\\TicTacToe\\src\\main\\resources\\prison.png");
+        ImageIcon backImage = new ImageIcon("src/main/resources/prison.png");
         label.setIcon(backImage);
 
 
@@ -179,7 +181,7 @@ public class PlayWindow implements ActionListener {
     public void actionPerformed(ActionEvent actionEvent) {
         if(select.getText().equals("X")) {
             if (actionEvent.getSource() == button1) {
-                ImageIcon icon = new ImageIcon("E:\\javaprojects\\TicTacToe\\src\\main\\resources\\XButtons\\X1.png");
+                ImageIcon icon = new ImageIcon("src/main/resources/XButtons/X1.png");
                 B1.setIcon(icon);
                 B1.setVisible(true);
 
@@ -188,13 +190,15 @@ public class PlayWindow implements ActionListener {
 
                 button1.setEnabled(false);
 
-//                WonMessage = logic.logic(0,0,1);
+                ReturnMessage = logic.logic(0,0,1);
 
-                if(logic.logic(0,0,1).equals("X Won!")){
+                if(ReturnMessage.equals("X Won!")){
                     WonWindow wonWindow = new WonWindow("X Won!");
+                }else if(ReturnMessage.equals("Draw!")){
+                    WonWindow wonWindow = new WonWindow("Draw!");
                 }
             } else if (actionEvent.getSource() == button2) {
-                ImageIcon icon = new ImageIcon("E:\\javaprojects\\TicTacToe\\src\\main\\resources\\XButtons\\X2.png");
+                ImageIcon icon = new ImageIcon("src/main/resources/XButtons/X2.png");
                 B2.setIcon(icon);
                 B2.setVisible(true);
 
@@ -203,13 +207,15 @@ public class PlayWindow implements ActionListener {
 
                 button2.setEnabled(false);
 
-//                WonMessage = logic.logic(0,1,1);
+                ReturnMessage = logic.logic(0,1,1);
 
-                if(logic.logic(0,1,1).equals("X Won!")){
+                if(ReturnMessage.equals("X Won!")){
                     WonWindow wonWindow = new WonWindow("X Won!");
+                }else if(ReturnMessage.equals("Draw!")){
+                    WonWindow wonWindow = new WonWindow("Draw!");
                 }
             } else if (actionEvent.getSource() == button3) {
-                ImageIcon icon = new ImageIcon("E:\\javaprojects\\TicTacToe\\src\\main\\resources\\XButtons\\X3.png");
+                ImageIcon icon = new ImageIcon("src/main/resources/XButtons/X3.png");
                 B3.setIcon(icon);
                 B3.setVisible(true);
 
@@ -218,13 +224,15 @@ public class PlayWindow implements ActionListener {
 
                 button3.setEnabled(false);
 
-//                WonMessage = logic.logic(0,2,1);
+                ReturnMessage = logic.logic(0,2,1);
 
-                if(logic.logic(0,2,1).equals("X Won!")){
+                if(ReturnMessage.equals("X Won!")){
                     WonWindow wonWindow = new WonWindow("X Won!");
+                }else if(ReturnMessage.equals("Draw!")){
+                    WonWindow wonWindow = new WonWindow("Draw!");
                 }
             } else if (actionEvent.getSource() == button4) {
-                ImageIcon icon = new ImageIcon("E:\\javaprojects\\TicTacToe\\src\\main\\resources\\XButtons\\X4.png");
+                ImageIcon icon = new ImageIcon("src/main/resources/XButtons/X4.png");
                 B4.setIcon(icon);
                 B4.setVisible(true);
 
@@ -233,13 +241,15 @@ public class PlayWindow implements ActionListener {
 
                 button4.setEnabled(false);
 
-//                WonMessage = logic.logic(1,0,1);
+                ReturnMessage = logic.logic(1,0,1);
 
-                if(logic.logic(1,0,1).equals("X Won!")){
+                if(ReturnMessage.equals("X Won!")){
                     WonWindow wonWindow = new WonWindow("X Won!");
-                };
+                }else if(ReturnMessage.equals("Draw!")){
+                    WonWindow wonWindow = new WonWindow("Draw!");
+                }
             } else if (actionEvent.getSource() == button5) {
-                ImageIcon icon = new ImageIcon("E:\\javaprojects\\TicTacToe\\src\\main\\resources\\XButtons\\X5.png");
+                ImageIcon icon = new ImageIcon("src/main/resources/XButtons/X5.png");
                 B5.setIcon(icon);
                 B5.setVisible(true);
 
@@ -248,13 +258,15 @@ public class PlayWindow implements ActionListener {
 
                 button5.setEnabled(false);
 
-//                WonMessage = logic.logic(1,1,1);
+                ReturnMessage = logic.logic(1,1,1);
 
-                if(logic.logic(1,1,1).equals("X Won!")){
+                if(ReturnMessage.equals("X Won!")){
                     WonWindow wonWindow = new WonWindow("X Won!");
+                }else if(ReturnMessage.equals("Draw!")){
+                    WonWindow wonWindow = new WonWindow("Draw!");
                 }
             } else if (actionEvent.getSource() == button6) {
-                ImageIcon icon = new ImageIcon("E:\\javaprojects\\TicTacToe\\src\\main\\resources\\XButtons\\X6.png");
+                ImageIcon icon = new ImageIcon("src/main/resources/XButtons/X6.png");
                 B6.setIcon(icon);
                 B6.setVisible(true);
 
@@ -263,13 +275,15 @@ public class PlayWindow implements ActionListener {
 
                 button6.setVisible(false);
 
-//                WonMessage = logic.logic(1,2,1);
+                ReturnMessage = logic.logic(1,2,1);
 
-                if(logic.logic(1,2,1).equals("X Won!")){
+                if(ReturnMessage.equals("X Won!")){
                     WonWindow wonWindow = new WonWindow("X Won!");
+                }else if(ReturnMessage.equals("Draw!")){
+                    WonWindow wonWindow = new WonWindow("Draw!");
                 }
             } else if (actionEvent.getSource() == button7) {
-                ImageIcon icon = new ImageIcon("E:\\javaprojects\\TicTacToe\\src\\main\\resources\\XButtons\\X7.png");
+                ImageIcon icon = new ImageIcon("src/main/resources/XButtons/X7.png");
                 B7.setIcon(icon);
                 B7.setVisible(true);
 
@@ -278,13 +292,15 @@ public class PlayWindow implements ActionListener {
 
                 button7.setEnabled(false);
 
-//                WonMessage = logic.logic(2,0,1);
+                ReturnMessage = logic.logic(2,0,1);
 
-                if(logic.logic(2,0,1).equals("X Won!")){
+                if(ReturnMessage.equals("X Won!")){
                     WonWindow wonWindow = new WonWindow("X Won!");
+                }else if(ReturnMessage.equals("Draw!")){
+                    WonWindow wonWindow = new WonWindow("Draw!");
                 }
             } else if (actionEvent.getSource() == button8) {
-                ImageIcon icon = new ImageIcon("E:\\javaprojects\\TicTacToe\\src\\main\\resources\\XButtons\\X8.png");
+                ImageIcon icon = new ImageIcon("src/main/resources/XButtons/X8.png");
                 B8.setIcon(icon);
                 B8.setVisible(true);
 
@@ -293,13 +309,15 @@ public class PlayWindow implements ActionListener {
 
                 button8.setEnabled(false);
 
-//                WonMessage = logic.logic(2,1,1);
+                ReturnMessage = logic.logic(2,1,1);
 
-                if(logic.logic(2,1,1).equals("X Won!")){
+                if(ReturnMessage.equals("X Won!")){
                     WonWindow wonWindow = new WonWindow("X Won!");
+                }else if(ReturnMessage.equals("Draw!")){
+                    WonWindow wonWindow = new WonWindow("Draw!");
                 }
             } else if (actionEvent.getSource() == button9) {
-                ImageIcon icon = new ImageIcon("E:\\javaprojects\\TicTacToe\\src\\main\\resources\\XButtons\\X9.png");
+                ImageIcon icon = new ImageIcon("src/main/resources/XButtons/X9.png");
                 B9.setIcon(icon);
                 B9.setVisible(true);
 
@@ -308,15 +326,17 @@ public class PlayWindow implements ActionListener {
 
                 button9.setEnabled(false);
 
-//                WonMessage = logic.logic(2,2,1);
+                ReturnMessage = logic.logic(2,2,1);
 
-                if(logic.logic(2,2,1).equals("X Won!")){
+                if(ReturnMessage.equals("X Won!")){
                     WonWindow wonWindow = new WonWindow("X Won!");
+                }else if(ReturnMessage.equals("Draw!")){
+                    WonWindow wonWindow = new WonWindow("Draw!");
                 }
             }
         }else {
             if (actionEvent.getSource() == button1) {
-                ImageIcon icon = new ImageIcon("E:\\javaprojects\\TicTacToe\\src\\main\\resources\\OButtons\\O1.png");
+                ImageIcon icon = new ImageIcon("src/main/resources/OButtons/O1.png");
                 B1.setIcon(icon);
                 B1.setVisible(true);
 
@@ -325,13 +345,15 @@ public class PlayWindow implements ActionListener {
 
                 button1.setEnabled(false);
 
-//                WonMessage = logic.logic(0,0,-1);
+                ReturnMessage = logic.logic(0,0,-1);
 
-                if(logic.logic(0,0,-1).equals("O Won!")){
+                if(ReturnMessage.equals("O Won!")){
                     WonWindow wonWindow = new WonWindow("O Won!");
+                }else if(ReturnMessage.equals("Draw!")){
+                    WonWindow wonWindow = new WonWindow("Draw!");
                 }
             } else if (actionEvent.getSource() == button2) {
-                ImageIcon icon = new ImageIcon("E:\\javaprojects\\TicTacToe\\src\\main\\resources\\OButtons\\O2.png");
+                ImageIcon icon = new ImageIcon("src/main/resources/OButtons/O2.png");
                 B2.setIcon(icon);
                 B2.setVisible(true);
 
@@ -340,13 +362,15 @@ public class PlayWindow implements ActionListener {
 
                 button2.setEnabled(false);
 
-//                WonMessage = logic.logic(0,1,-1);
+                ReturnMessage = logic.logic(0,1,-1);
 
-                if(logic.logic(0,1,-1).equals("O Won!")){
+                if(ReturnMessage.equals("O Won!")){
                     WonWindow wonWindow = new WonWindow("O Won!");
+                }else if(ReturnMessage.equals("Draw!")){
+                    WonWindow wonWindow = new WonWindow("Draw!");
                 }
             } else if (actionEvent.getSource() == button3) {
-                ImageIcon icon = new ImageIcon("E:\\javaprojects\\TicTacToe\\src\\main\\resources\\OButtons\\O3.png");
+                ImageIcon icon = new ImageIcon("src/main/resources/OButtons/O3.png");
                 B3.setIcon(icon);
                 B3.setVisible(true);
 
@@ -355,13 +379,15 @@ public class PlayWindow implements ActionListener {
 
                 button3.setEnabled(false);
 
-//                WonMessage = logic.logic(0,2,-1);
+                ReturnMessage = logic.logic(0,2,-1);
 
-                if(logic.logic(0,2,-1).equals("O Won!")){
+                if(ReturnMessage.equals("O Won!")){
                     WonWindow wonWindow = new WonWindow("O Won!");
+                }else if(ReturnMessage.equals("Draw!")){
+                    WonWindow wonWindow = new WonWindow("Draw!");
                 }
             } else if (actionEvent.getSource() == button4) {
-                ImageIcon icon = new ImageIcon("E:\\javaprojects\\TicTacToe\\src\\main\\resources\\OButtons\\O4.png");
+                ImageIcon icon = new ImageIcon("src/main/resources/OButtons/O4.png");
                 B4.setIcon(icon);
                 B4.setVisible(true);
 
@@ -370,13 +396,15 @@ public class PlayWindow implements ActionListener {
 
                 button4.setEnabled(false);
 
-//                WonMessage = logic.logic(1,0,-1);
+                ReturnMessage = logic.logic(1,0,-1);
 
-                if(logic.logic(1,0,-1).equals("O Won!")){
+                if(ReturnMessage.equals("O Won!")){
                     WonWindow wonWindow = new WonWindow("O Won!");
+                }else if(ReturnMessage.equals("Draw!")){
+                    WonWindow wonWindow = new WonWindow("Draw!");
                 }
             } else if (actionEvent.getSource() == button5) {
-                ImageIcon icon = new ImageIcon("E:\\javaprojects\\TicTacToe\\src\\main\\resources\\OButtons\\O5.png");
+                ImageIcon icon = new ImageIcon("src/main/resources/OButtons/O5.png");
                 B5.setIcon(icon);
                 B5.setVisible(true);
 
@@ -385,13 +413,15 @@ public class PlayWindow implements ActionListener {
 
                 button5.setEnabled(false);
 
-//                WonMessage = logic.logic(1,1,-1);
+                ReturnMessage = logic.logic(1,1,-1);
 
-                if(logic.logic(1,1,-1).equals("O Won!")){
+                if(ReturnMessage.equals("O Won!")){
                     WonWindow wonWindow = new WonWindow("O Won!");
+                }else if(ReturnMessage.equals("Draw!")){
+                    WonWindow wonWindow = new WonWindow("Draw!");
                 }
             } else if (actionEvent.getSource() == button6) {
-                ImageIcon icon = new ImageIcon("E:\\javaprojects\\TicTacToe\\src\\main\\resources\\OButtons\\O6.png");
+                ImageIcon icon = new ImageIcon("src/main/resources/OButtons/O6.png");
                 B6.setIcon(icon);
                 B6.setVisible(true);
 
@@ -400,13 +430,15 @@ public class PlayWindow implements ActionListener {
 
                 button6.setEnabled(false);
 
-//                WonMessage = logic.logic(1,2,-1);
+                ReturnMessage = logic.logic(1,2,-1);
 
-                if(logic.logic(1,2,-1).equals("O Won!")){
+                if(ReturnMessage.equals("O Won!")){
                     WonWindow wonWindow = new WonWindow("O Won!");
+                }else if(ReturnMessage.equals("Draw!")){
+                    WonWindow wonWindow = new WonWindow("Draw!");
                 }
             } else if (actionEvent.getSource() == button7) {
-                ImageIcon icon = new ImageIcon("E:\\javaprojects\\TicTacToe\\src\\main\\resources\\OButtons\\O7.png");
+                ImageIcon icon = new ImageIcon("src/main/resources/OButtons/O7.png");
                 B7.setIcon(icon);
                 B7.setVisible(true);
 
@@ -415,13 +447,15 @@ public class PlayWindow implements ActionListener {
 
                 button7.setEnabled(false);
 
-//                WonMessage = logic.logic(2,0,-1);
+                ReturnMessage = logic.logic(2,0,-1);
 
-                if(logic.logic(2,0,-1).equals("O Won!")){
+                if(ReturnMessage.equals("O Won!")){
                     WonWindow wonWindow = new WonWindow("O Won!");
+                }else if(ReturnMessage.equals("Draw!")){
+                    WonWindow wonWindow = new WonWindow("Draw!");
                 }
             } else if (actionEvent.getSource() == button8) {
-                ImageIcon icon = new ImageIcon("E:\\javaprojects\\TicTacToe\\src\\main\\resources\\OButtons\\O8.png");
+                ImageIcon icon = new ImageIcon("src/main/resources/OButtons/O8.png");
                 B8.setIcon(icon);
                 B8.setVisible(true);
 
@@ -430,13 +464,15 @@ public class PlayWindow implements ActionListener {
 
                 button8.setEnabled(false);
 
-//                WonMessage = logic.logic(2,1,-1);
+                ReturnMessage = logic.logic(2,1,-1);
 
-                if(logic.logic(2,1,-1).equals("O Won!")){
+                if(ReturnMessage.equals("O Won!")){
                     WonWindow wonWindow = new WonWindow("O Won!");
+                }else if(ReturnMessage.equals("Draw!")){
+                    WonWindow wonWindow = new WonWindow("Draw!");
                 }
             } else if (actionEvent.getSource() == button9) {
-                ImageIcon icon = new ImageIcon("E:\\javaprojects\\TicTacToe\\src\\main\\resources\\OButtons\\O9.png");
+                ImageIcon icon = new ImageIcon("src/main/resources/OButtons/O9.png");
                 B9.setIcon(icon);
                 B9.setVisible(true);
 
@@ -445,10 +481,12 @@ public class PlayWindow implements ActionListener {
 
                 button9.setEnabled(false);
 
-//                WonMessage = logic.logic(2,2,-1);
+                ReturnMessage = logic.logic(2,2,-1);
 
-                if(logic.logic(2,2,-1).equals("O Won!")){
+                if(ReturnMessage.equals("O Won!")){
                     WonWindow wonWindow = new WonWindow("O Won!");
+                }else if(ReturnMessage.equals("Draw!")){
+                    WonWindow wonWindow = new WonWindow("Draw!");
                 }
             }
         }

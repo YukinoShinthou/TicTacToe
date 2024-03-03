@@ -28,14 +28,14 @@ public class MainWindow implements ActionListener {
         int y = (int) ((dimension.getHeight()) / 4);
         frame.setLocation(x, y);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ImageIcon icon = new ImageIcon("E:\\javaprojects\\TicTacToe\\src\\main\\resources\\Icon.jpg");
+        ImageIcon icon = new ImageIcon("src/main/resources/Icon.jpg");
         frame.setIconImage(icon.getImage());
-        frame.setResizable(false);
+        frame.setResizable(true);
         frame.setVisible(true);
 
 
         JLabel label = new JLabel();
-        ImageIcon backImage = new ImageIcon("E:\\javaprojects\\TicTacToe\\src\\main\\resources\\1.jpg");
+        ImageIcon backImage = new ImageIcon("src/main/resources/1.jpg");
         label.setIcon(backImage);
 
 
